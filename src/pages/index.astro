@@ -1,17 +1,28 @@
 ---
-
+import Layout from "../layouts/Layout.astro";
+import ThemeToggle from "../components/ThemeToggle.astro";
 ---
+<Layout title="Lisa Sulkes — Portfolio">
+  <header class="flex justify-end p-6">
+    <ThemeToggle />
+  </header>
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+  <main class="flex min-h-[70vh] flex-col items-center justify-center gap-4 px-6 text-center">
+   
+	<h1 class="font-display text-xl font-semibold text-accent sm:text-8xl
+        dark:bg-gradient-to-b dark:from-white dark:to-slate-400
+        dark:bg-clip-text dark:text-transparent">
+
+        Lisa Sulkes
+    </h1>
+
+	<div class="relative my-3 h-px w-200">
+      <div class="absolute inset-0 bg-gradient-to-r from-transparent via-accent to-transparent"></div>
+      <div class="absolute inset-0 bg-gradient-to-r from-transparent via-accent to-transparent blur-[3px]"></div>
+    </div>
+
+    <p class="max-w-xl text-lg font-medium tracking-wider text-muted sm:text-xl">
+      Crafting elegant, modern digital solutions.
+    </p>
+  </main>
+</Layout>
