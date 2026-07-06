@@ -1,28 +1,36 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import ThemeToggle from "../components/ThemeToggle.astro";
+import Button from "../components/Button.astro";
 ---
 <Layout title="Lisa Sulkes — Portfolio">
-  <header class="flex justify-end p-6">
+  <div class="fixed right-4 top-4 z-50">
     <ThemeToggle />
-  </header>
+  </div>
 
   <main class="flex min-h-[70vh] flex-col items-center justify-center gap-4 px-6 text-center">
    
-	<h1 class="font-display text-xl font-semibold text-accent sm:text-8xl
+	<h1 class="font-display text-[clamp(2.5rem,12vw,8rem)] font-semibold text-accent sm:text-8xl
         dark:bg-gradient-to-b dark:from-white dark:to-slate-400
         dark:bg-clip-text dark:text-transparent">
 
         Lisa Sulkes
     </h1>
 
-	<div class="relative my-3 h-px w-200">
+	    <div class="relative my-4 h-0.5 w-full max-w-4xl">
       <div class="absolute inset-0 bg-gradient-to-r from-transparent via-accent to-transparent"></div>
       <div class="absolute inset-0 bg-gradient-to-r from-transparent via-accent to-transparent blur-[3px]"></div>
     </div>
 
     <p class="max-w-xl text-lg font-medium tracking-wider text-muted sm:text-xl">
-      Crafting elegant, modern digital solutions.
+      Building secure, scalable full-stack web applications.
     </p>
+
+      <div class="mt-8 flex flex-wrap items-center justify-center gap-25">
+      <Button href="#about">About</Button>
+      <Button href="/resume.pdf" external>Resume</Button>
+      <Button href="/insights">Insights</Button>
+    </div>
+    
   </main>
 </Layout>
