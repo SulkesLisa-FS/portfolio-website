@@ -21,6 +21,8 @@
   --color-navy:      #081226;
 }
 
+
+
 /* --- Semantic tokens — DARK  ---- */
 :root, .dark {
   --background: #081226;
@@ -29,6 +31,8 @@
   --heading:    #cbd5e1;   
   --muted:      #8ba3c7;
   --accent:     var(--color-brand-400);
+  --accent2:    #fafcdc;
+  --glow: 255 200 120;
   
 }
 
@@ -40,6 +44,8 @@
   --heading:    #0f172a;   
   --muted:      #55688a;
   --accent:     var(--color-brand-600);
+  --accent2:    #b1b5b6;
+  --glow: 37 99 235; 
 }
 
 /* ---- Export tokens to Tailwind ---- */
@@ -50,4 +56,14 @@
   --color-muted:      var(--muted);
   --color-accent:     var(--accent);
   --color-heading: var(--heading);
+}
+
+/* Keep form fields off-white with dark text, even when autofilled */
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill {
+  -webkit-text-fill-color: #0f172a;               
+  -webkit-box-shadow: 0 0 0 1000px #f1f5f9 inset; 
+  caret-color: #0f172a;
 }

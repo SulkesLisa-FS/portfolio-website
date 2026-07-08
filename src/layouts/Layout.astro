@@ -1,11 +1,12 @@
 ---
 import "../styles/global.css";
-
+import ThemeToggle from "../components/ThemeToggle.astro";
+// Define props for the layout component
 interface Props {
   title?: string;
   description?: string;
 }
-
+// Destructure props with default values
 const {
   title = "Lisa Sulkes",
   description = "Portfolio of Lisa Sulkes — full-stack developer.",
@@ -39,7 +40,11 @@ const {
       document.documentElement.classList.add(theme);
     </script>
   </head>
+  
   <body class="min-h-screen bg-background font-sans text-foreground antialiased">
+   <div class="fixed right-4 top-4 z-50">
+    <ThemeToggle />
+  </div>
     <slot />
   </body>
 </html>

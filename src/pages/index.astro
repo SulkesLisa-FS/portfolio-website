@@ -1,36 +1,73 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import ThemeToggle from "../components/ThemeToggle.astro";
 import Button from "../components/Button.astro";
 ---
 <Layout title="Lisa Sulkes — Portfolio">
-  <div class="fixed right-4 top-4 z-50">
-    <ThemeToggle />
-  </div>
-
+  
   <main class="flex min-h-[70vh] flex-col items-center justify-center gap-4 px-6 text-center">
-   
-	<h1 class="font-display text-[clamp(2.5rem,12vw,8rem)] font-semibold text-accent sm:text-8xl
-        dark:bg-gradient-to-b dark:from-white dark:to-slate-400
-        dark:bg-clip-text dark:text-transparent">
+    <h1 class="font-display text-[clamp(2.5rem,12vw,8rem)] font-semibold text-accent sm:text-8xl
+      dark:bg-gradient-to-b dark:from-white dark:to-slate-400
+      dark:bg-clip-text dark:text-transparent">
 
-        Lisa Sulkes
+      Lisa Sulkes
     </h1>
 
-	    <div class="relative my-4 h-0.5 w-full max-w-4xl">
+    <!-- Gradient divider -->
+	  <div class="relative my-4 h-0.5 w-full max-w-4xl">
       <div class="absolute inset-0 bg-gradient-to-r from-transparent via-accent to-transparent"></div>
       <div class="absolute inset-0 bg-gradient-to-r from-transparent via-accent to-transparent blur-[3px]"></div>
     </div>
 
+    <!-- Tagline -->
     <p class="max-w-xl text-lg font-medium tracking-wider text-muted sm:text-xl">
       Building secure, scalable full-stack web applications.
     </p>
 
-      <div class="mt-8 flex flex-wrap items-center justify-center gap-25">
+    <!-- Call-to-action buttons -->
+    <div class="mt-8 flex flex-wrap items-center justify-center gap-25">
       <Button href="#about">About</Button>
       <Button href="/resume.pdf" external>Resume</Button>
       <Button href="/insights">Insights</Button>
     </div>
+
+    <!-- Contact section -->
+    <p class="mt-10 text-2xl font-medium tracking-wide text-heading">Let's connect</p>
+    <!-- Contact buttons -->
+    <div class="mt-4 inline-flex items-center gap-14 rounded-full border border-accent/15
+          bg-surface/40 px-27 py-4 shadow-[0_0_24px_-10px_var(--accent)] backdrop-blur-sm">
+
+      <!-- Email Link to contact page -->
+      <a href="/contact"
+        class="inline-flex items-center gap-2 text-foreground transition hover:text-accent">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="currentColor" class="size-5 shrink-0">
+          <path d="M3 4a2 2 0 0 0-2 2v.4l9 4.5 9-4.5V6a2 2 0 0 0-2-2H3Z" />
+          <path d="m19 8.6-9 4.5-9-4.5V14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V8.6Z" />
+        </svg>
+        <span>Email Me</span>
+      </a>
+
+      <!-- Floating accent dot -->
+      <span aria-hidden="true" class="size-1.5 rounded-full bg-accent/70 shadow-[0_0_6px_var(--accent)]">
+      </span>
+
+      <!-- LinkedIn Link -->
+      <a href="https://www.linkedin.com/in/lisa-p-sulkes-8858132b0/" target="_blank" rel="noopener noreferrer"
+        class="inline-flex items-center gap-2 text-foreground transition hover:text-accent">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" class="size-5    shrink-0">
+          <path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.34V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28ZM5.34 7.43a2.07 2.07 0 1 1 0-4.14 2.07 2.07 0 0 1 0 4.14ZM7.12 20.45H3.55V9h3.57v11.45ZM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0Z" />
+        </svg>
+        <span>LinkedIn</span>
+      </a>
+    </div>
+     
+
+
+        
+
+
+
+
     
   </main>
+
 </Layout>
