@@ -1,11 +1,13 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import Button from "../components/Button.astro";
+import ProjectCard from "../components/ProjectCard.astro";
+import { projects } from "../data/projects";
 ---
 <Layout title="Lisa Sulkes — Portfolio">
   
   <main class="flex min-h-[70vh] flex-col items-center justify-center gap-4 px-6 text-center">
-    <h1 class="font-display text-[clamp(2.5rem,12vw,8rem)] font-semibold text-accent sm:text-8xl
+    <h1 class="font-display text-[clamp(2.5rem,12vw,8rem)] font-semibold text-accent sm:text-8xl pt-10
       dark:bg-gradient-to-b dark:from-white dark:to-slate-400
       dark:bg-clip-text dark:text-transparent">
 
@@ -31,7 +33,7 @@ import Button from "../components/Button.astro";
     </div>
 
     <!-- Contact section -->
-    <p class="mt-10 text-2xl font-medium tracking-wide text-heading">Let's connect</p>
+    <p class="mt-10 font-medium tracking-wide text-heading sm:text-2xl">Let's connect</p>
     <!-- Contact buttons -->
     <div class="mt-4 inline-flex items-center gap-7 tracking-wide rounded-full border 
       border-accent/15 bg-surface/40 px-5 py-4 text-lg shadow-[0_0_24px_-10px_var(--accent)] backdrop-blur-sm">
@@ -71,5 +73,15 @@ import Button from "../components/Button.astro";
         <span>LinkedIn</span>
       </a>
     </div>
+    
+    <!-- Projects -->
+    <section id="projects" class="mx-auto w-full max-w-6xl px-6 py-24">
+      <h2 class="mt-10 text-2xl font-medium tracking-wide text-heading sm:text-3xl">
+        Projects
+      </h2>
+      <div class="mt-12 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+        {projects.map((project) => <ProjectCard project={project} />)}
+      </div>
+    </section>
   </main>
 </Layout>
