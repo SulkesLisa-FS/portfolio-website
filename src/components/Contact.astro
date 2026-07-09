@@ -10,30 +10,30 @@
     <input type="hidden" name="subject" value="New message from your portfolio" />
     <!-- Spam honeypot (hidden from users) -->
     <input type="checkbox" name="botcheck" class="hidden" style="display:none" tabindex="-1" autocomplete="off" />
-    // Form Name
+    <!-- Form Name -->
     <div class="flex flex-col gap-1">
       <label for="name" class="text-lg text-heading">Name</label>
       <input id="name" name="name" type="text" required
         class="w-full rounded-lg border border-accent/20 bg-slate-100 px-4 py-3 text-slate-900 placeholder:text-slate-400 outline-none transition focus:border-accent focus:ring-2 focus:ring-accent/30" />
     </div>
-    // Form Email
+    <!-- Form Email -->
     <div class="flex flex-col gap-1">
       <label for="email" class="text-lg text-heading">Email</label>
       <input id="email" name="email" type="email" required
         class="w-full rounded-lg border border-accent/20 bg-slate-100 px-4 py-3 text-slate-900 placeholder:text-slate-400 outline-none transition focus:border-accent focus:ring-2 focus:ring-accent/30" />
     </div>
-    // Form Message
+    <!-- Form Message  -->
     <div class="flex flex-col gap-1">
       <label for="message" class="text-lg text-heading">Message</label>
       <textarea id="message" name="message" rows="5" required
         class="w-full rounded-lg border border-accent/20 bg-slate-100 px-4 py-3 text-slate-900 placeholder:text-slate-400 outline-none transition focus:border-accent focus:ring-2 focus:ring-accent/30"></textarea>
     </div>
-    // Submit Button
+    <!-- Submit Button  -->
     <button type="submit"
       class="mt-2 inline-flex items-center justify-center rounded-xl border border-accent/30 bg-surface/50 px-6 py-3 text-lg font-medium tracking-wide text-foreground transition hover:border-accent hover:text-accent hover:shadow-[0_0_20px_-2px_var(--accent)]">
       Send message
     </button>
-    // Status Message
+    <!-- Status Message -->
     <p id="form-status" class="mt-2 text-center text-sm" role="status" aria-live="polite"></p>
   </form>
 </section>
