@@ -1,0 +1,84 @@
+---
+---
+<section id="contact" class="mx-auto w-full max-w-xl px-6 py-24">
+  <h2 class="text-center font-display text-3xl font-semibold text-heading">Get in touch</h2>
+  <p class="mt-2 text-xl text-center text-heading">Have a project or role in mind? Send me a message.</p>
+
+  <form id="contact-form" class="mt-8 flex flex-col gap-4 text-left">
+    <!-- Web3Forms config -->
+    <input type="hidden" name="access_key" value="ac392baa-4e2b-4d56-8444-ff561e3c69c5" />
+    <input type="hidden" name="subject" value="New message from your portfolio" />
+    <!-- Spam honeypot (hidden from users) -->
+    <input type="checkbox" name="botcheck" class="hidden" style="display:none" tabindex="-1" autocomplete="off" />
+    // Form Name
+    <div class="flex flex-col gap-1">
+      <label for="name" class="text-lg text-heading">Name</label>
+      <input id="name" name="name" type="text" required
+        class="w-full rounded-lg border border-accent/20 bg-slate-100 px-4 py-3 text-slate-900 placeholder:text-slate-400 outline-none transition focus:border-accent focus:ring-2 focus:ring-accent/30" />
+    </div>
+    // Form Email
+    <div class="flex flex-col gap-1">
+      <label for="email" class="text-lg text-heading">Email</label>
+      <input id="email" name="email" type="email" required
+        class="w-full rounded-lg border border-accent/20 bg-slate-100 px-4 py-3 text-slate-900 placeholder:text-slate-400 outline-none transition focus:border-accent focus:ring-2 focus:ring-accent/30" />
+    </div>
+    // Form Message
+    <div class="flex flex-col gap-1">
+      <label for="message" class="text-lg text-heading">Message</label>
+      <textarea id="message" name="message" rows="5" required
+        class="w-full rounded-lg border border-accent/20 bg-slate-100 px-4 py-3 text-slate-900 placeholder:text-slate-400 outline-none transition focus:border-accent focus:ring-2 focus:ring-accent/30"></textarea>
+    </div>
+    // Submit Button
+    <button type="submit"
+      class="mt-2 inline-flex items-center justify-center rounded-xl border border-accent/30 bg-surface/50 px-6 py-3 text-lg font-medium tracking-wide text-foreground transition hover:border-accent hover:text-accent hover:shadow-[0_0_20px_-2px_var(--accent)]">
+      Send message
+    </button>
+    // Status Message
+    <p id="form-status" class="mt-2 text-center text-sm" role="status" aria-live="polite"></p>
+  </form>
+</section>
+
+<script>
+  const form = document.getElementById("contact-form") as HTMLFormElement | null;
+  const status = document.getElementById("form-status");
+  let statusTimer: number | undefined;
+  // Helper to update status message and clears it after a delay then redirects to homepage on success.
+  function setStatus(text: string, className: string, autoClear = false) {
+    if (!status) return;
+    clearTimeout(statusTimer);
+    status.textContent = text;
+    status.className = className;
+    if (autoClear) {
+      statusTimer = window.setTimeout(() => {
+        status.textContent = "";
+        status.className = "mt-2 text-center text-4xl";
+      }, 5000);
+    }
+  }
+
+  form?.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    if (!form) return;
+    setStatus("Sending…", "mt-2 text-center text-4xl text-muted");
+    try {
+      const res = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: { Accept: "application/json" },
+        body: new FormData(form),
+      });
+      const data = await res.json();
+      if (data.success) {
+        setStatus("Thanks for connecting! Redirecting…", "mt-2 text-center text-4xl text-accent");
+        form.reset();
+        clearTimeout(statusTimer);
+        statusTimer = window.setTimeout(() => {
+          window.location.href = "/";
+        }, 3000);
+      } else {
+        setStatus(data.message ?? "Something went wrong. Please try again.", "mt-2 text-center text-4xl text-red-400", true);
+      }
+    } catch {
+      setStatus("Network error. Please try again.", "mt-2 text-center text-4xl text-red-400", true);
+    }
+  });
+</script>
