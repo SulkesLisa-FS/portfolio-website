@@ -33,8 +33,20 @@ import Button from "../components/Button.astro";
     <!-- Contact section -->
     <p class="mt-10 text-2xl font-medium tracking-wide text-heading">Let's connect</p>
     <!-- Contact buttons -->
-    <div class="mt-4 inline-flex items-center gap-14 rounded-full border border-accent/15
-          bg-surface/40 px-27 py-4 shadow-[0_0_24px_-10px_var(--accent)] backdrop-blur-sm">
+    <div class="mt-4 inline-flex items-center gap-7 tracking-wide rounded-full border 
+      border-accent/15 bg-surface/40 px-5 py-4 text-lg shadow-[0_0_24px_-10px_var(--accent)] backdrop-blur-sm">
+
+      <!-- Phone Number-->
+      <a href="tel:+14073082456" class="inline-flex items-center gap-2 text-foreground transition hover:text-accent">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="currentColor" class="size-5 shrink-0">
+          <path fill-rule="evenodd" d="M2 3.5A1.5 1.5 0 0 1 3.5 2h1.148a1.5 1.5 0 0 1 1.465 1.175l.716 3.223a1.5 1.5 0 0 1-1.052 1.767l-.933.267c-.41.117-.643.555-.48.95a11.542 11.542 0 0 0 6.254 6.254c.395.163.833-.07.95-.48l.267-.933a1.5 1.5 0 0 1 1.767-1.052l3.223.716A1.5 1.5 0 0 1 18 15.352V16.5a1.5 1.5 0 0 1-1.5 1.5H15c-7.18 0-13-5.82-13-13V3.5Z" clip-rule="evenodd" />
+        </svg>
+        <span>(407) 308-2456</span>
+      </a>
+
+      <!-- Floating accent dot -->
+      <span aria-hidden="true" class="size-1.5 rounded-full bg-accent/70 shadow-[0_0_6px_var(--accent)]">
+      </span>
 
       <!-- Email Link to contact page -->
       <a href="/contact"
@@ -59,15 +71,5 @@ import Button from "../components/Button.astro";
         <span>LinkedIn</span>
       </a>
     </div>
-     
-
-
-        
-
-
-
-
-    
   </main>
-
 </Layout>
