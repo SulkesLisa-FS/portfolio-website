@@ -1,4 +1,3 @@
-
 import type { ImageMetadata } from "astro";
 import communityNightOut from "../assets/projects/cno.png";
 import kitchenSync from "../assets/projects/kitchen-sync.png";
@@ -9,7 +8,7 @@ export interface Project {
   image: ImageMetadata;
   github: string;
   showcase: string;
-  live?: string;   
+  live?: string;
 }
 
 export const projects: Project[] = [

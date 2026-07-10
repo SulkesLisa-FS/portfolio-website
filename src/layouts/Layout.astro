@@ -40,11 +40,13 @@ const {
       document.documentElement.classList.add(theme);
     </script>
   </head>
-  
-  <body class="min-h-screen bg-background font-sans text-foreground antialiased">
-   <div class="fixed right-4 top-4 z-50">
-    <ThemeToggle />
-  </div>
+
+  <body
+    class="min-h-screen bg-background font-sans text-foreground antialiased"
+  >
+    <div class="fixed right-4 top-4 z-50">
+      <ThemeToggle />
+    </div>
     <slot />
   </body>
 </html>

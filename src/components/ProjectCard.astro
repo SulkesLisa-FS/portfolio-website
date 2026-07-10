@@ -1,52 +1,107 @@
 ---
 import { Image } from "astro:assets";
 import type { Project } from "../data/projects";
-interface Props { project: Project; }
+interface Props {
+  project: Project;
+}
 const { project } = Astro.props;
 ---
-<article class="group flex flex-col overflow-hidden rounded-2xl border border-accent/15 bg-surface/40 transition duration-300 hover:border-accent/40 hover:shadow-[0_0_30px_-8px_rgb(var(--glow)/0.5)]">
 
-    <!-- Thumbnail -->
-    <div class="aspect-video w-full overflow-hidden bg-gradient-to-br from-brand-900 to-navy">
-        <Image src={project.image} alt={project.title} width={640} height={360}
-           class="h-full w-full object-cover transition duration-300 group-hover:scale-105" />
+<article
+  class="group flex flex-col overflow-hidden rounded-2xl border border-accent/15 bg-surface/40 transition duration-300 hover:border-accent/40 hover:shadow-[0_0_30px_-8px_rgb(var(--glow)/0.5)]"
+>
+  <!-- Thumbnail -->
+  <div
+    class="aspect-video w-full overflow-hidden bg-gradient-to-br from-brand-900 to-navy"
+  >
+    <Image
+      src={project.image}
+      alt={project.title}
+      width={640}
+      height={360}
+      class="h-full w-full object-cover transition duration-300 group-hover:scale-105"
+    />
   </div>
 
-    <div class="flex flex-col gap-4 p-6">
-        <!-- Title -->
-        <h3 class="font-display text-xl font-semibold tracking-wider text-heading">{project.title}</h3>
+  <div class="flex flex-col gap-4 p-6">
+    <!-- Title -->
+    <h3 class="font-display text-xl font-semibold tracking-wider text-heading">
+      {project.title}
+    </h3>
 
-        <div class="flex gap-6">
-            <!-- Live Link (conditionally rendered if project.live exists) -->
-            {project.live && (
-                <a href={project.live} target="_blank" rel="noopener noreferrer"
-                class="inline-flex items-center gap-1.5 text-sm text-foreground transition hover:text-accent">
-                 <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
-                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="shrink-0">
-                    <circle cx="12" cy="12" r="10" />
-                    <path d="M2 12h20" />
-                    <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
-                 </svg>
-                 Live
-                </a>
-            )}
-        <!-- GitHub Link -->
-        <a href={project.github} target="_blank" rel="noopener noreferrer"
-         class="inline-flex items-center gap-1.5 text-sm text-foreground transition hover:text-accent">
-            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor" class="shrink-0">
-            <path d="M12 .5A11.5 11.5 0 0 0 .5 12a11.5 11.5 0 0 0 7.9 10.9c.6.1.8-.2.8-.5v-2c-3.2.7-3.9-1.4-3.9-1.4-.5-1.3-1.3-1.7-1.3-1.7-1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.7-1.6-2.6-.3-5.3-1.3-5.3-5.7 0-1.3.5-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0C17.3 4.8 18.3 5 18.3 5c.6 1.6.2 2.8.1 3.1.8.8 1.2 1.8 1.2 3.1 0 4.4-2.7 5.4-5.3 5.7.4.4.8 1.1.8 2.2v3.3c0 .3.2.6.8.5A11.5 11.5 0 0 0 23.5 12 11.5 11.5 0 0 0 12 .5Z"/>
+    <div class="flex gap-6">
+      <!-- Live Link (conditionally rendered if project.live exists) -->
+      {
+        project.live && (
+          <a
+            href={project.live}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center gap-1.5 text-sm text-foreground transition hover:text-accent"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="18"
+              height="18"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="shrink-0"
+            >
+              <circle cx="12" cy="12" r="10" />
+              <path d="M2 12h20" />
+              <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
             </svg>
-            GitHub
-        </a>
-       
-       <!-- Showcase Link -->
-        <a href={project.showcase} target="_blank" rel="noopener noreferrer"
-         class="inline-flex items-center gap-1.5 text-sm text-foreground transition hover:text-accent">
-            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor" class="shrink-0">
-             <path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.6 12 3.6 12 3.6s-7.5 0-9.4.5A3 3 0 0 0 .5 6.2 31 31 0 0 0 0 12a31 31 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1A31 31 0 0 0 24 12a31 31 0 0 0-.5-5.8ZM9.6 15.6V8.4l6.3 3.6-6.3 3.6Z"/>
-            </svg>
-            Showcase
-        </a>
-        </div>
+            Live
+          </a>
+        )
+      }
+      <!-- GitHub Link -->
+      <a
+        href={project.github}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="inline-flex items-center gap-1.5 text-sm text-foreground transition hover:text-accent"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="18"
+          height="18"
+          viewBox="0 0 24 24"
+          fill="currentColor"
+          class="shrink-0"
+        >
+          <path
+            d="M12 .5A11.5 11.5 0 0 0 .5 12a11.5 11.5 0 0 0 7.9 10.9c.6.1.8-.2.8-.5v-2c-3.2.7-3.9-1.4-3.9-1.4-.5-1.3-1.3-1.7-1.3-1.7-1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.7-1.6-2.6-.3-5.3-1.3-5.3-5.7 0-1.3.5-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0C17.3 4.8 18.3 5 18.3 5c.6 1.6.2 2.8.1 3.1.8.8 1.2 1.8 1.2 3.1 0 4.4-2.7 5.4-5.3 5.7.4.4.8 1.1.8 2.2v3.3c0 .3.2.6.8.5A11.5 11.5 0 0 0 23.5 12 11.5 11.5 0 0 0 12 .5Z"
+          ></path>
+        </svg>
+        GitHub
+      </a>
+
+      <!-- Showcase Link -->
+      <a
+        href={project.showcase}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="inline-flex items-center gap-1.5 text-sm text-foreground transition hover:text-accent"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="18"
+          height="18"
+          viewBox="0 0 24 24"
+          fill="currentColor"
+          class="shrink-0"
+        >
+          <path
+            d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.6 12 3.6 12 3.6s-7.5 0-9.4.5A3 3 0 0 0 .5 6.2 31 31 0 0 0 0 12a31 31 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1A31 31 0 0 0 24 12a31 31 0 0 0-.5-5.8ZM9.6 15.6V8.4l6.3 3.6-6.3 3.6Z"
+          ></path>
+        </svg>
+        Showcase
+      </a>
     </div>
+  </div>
 </article>
