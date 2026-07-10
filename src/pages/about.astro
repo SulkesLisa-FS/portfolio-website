@@ -1,0 +1,84 @@
+---
+import Layout from "../layouts/Layout.astro";
+import { Image } from "astro:assets";
+import headshot from "../assets/2026-head-shot650.png";
+---
+
+<Layout
+  title="About — Lisa Sulkes"
+  description="About Lisa Sulkes, full-stack developer."
+>
+  <div class="mx-auto w-full max-w-5xl px-6 pt-10">
+    <a
+      href="/"
+      class="inline-flex items-center gap-2 text-lg text-muted transition hover:text-accent"
+    >
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="16"
+        height="16"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        class="shrink-0"
+      >
+        <path d="M19 12H5"></path>
+        <path d="m12 19-7-7 7-7"></path>
+      </svg>
+      Back home
+    </a>
+  </div>
+
+  <section id="about" class="mx-auto w-full max-w-7xl px-7 py-16">
+    <h1 class="font-display text-3xl font-semibold text-heading sm:text-3xl">
+      About Me
+    </h1>
+
+    <div class="mt-8 grid items-center gap-10 md:grid-cols-2">
+      <!-- Left column: bio -->
+      <div class="flex flex-col gap-4 text-lg text-heading">
+        <p>
+          Hi, I'm Lisa Sulkes, a Junior Full‑Stack Developer who builds modern,
+          responsive, and user‑focused web applications.
+        </p>
+        <p>
+          I recently earned my B.S. in Web Design & Development from Full Sail
+          University with a 3.99 GPA, where I developed full‑stack projects
+          using JavaScript, React, Node.js, Express.js, MongoDB, TypeScript,
+          Docker, MySQL, and AWS.
+        </p>
+        <p>
+          I bring 17+ years of experience at E‑Tech Restoration, where I
+          maintain the company website, administer Ubiquiti network
+          infrastructure, and support business operations. This background
+          strengthened my problem‑solving, communication, and project management
+          skills.
+        </p>
+        <p>
+          I love learning new technologies, solving complex problems, and
+          building applications that deliver real value. I’m currently expanding
+          my cloud expertise through AWS Developer and Generative AI
+          certifications.
+        </p>
+        <p>
+          If you're looking for a developer who is dedicated, adaptable, and
+          passionate about creating great user experiences, I’d love to connect.
+        </p>
+      </div>
+
+      <!-- Right column: headshot -->
+      <div class="flex justify-center md:justify-end">
+        <Image
+          src={headshot}
+          alt="Portrait of Lisa Sulkes"
+          width={400}
+          height={400}
+          class="w-full max-w-md rounded-2xl border border-accent/15 object-cover shadow-[0_0_30px_-8px_rgb(var(--glow)/0.5)]"
+        />
+      </div>
+    </div>
+  </section>
+</Layout>
