@@ -1,0 +1,62 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import InsightCard from "../../components/InsightCard.astro";
+import { getCollection } from "astro:content";
+
+// Hide drafts in production; show them while developing. Sort newest first.
+const posts = (
+  await getCollection("insights", ({ data }) =>
+    import.meta.env.PROD ? data.draft !== true : true,
+  )
+).sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+---
+
+<Layout
+  title="Insights — Lisa Sulkes"
+  description="Articles and insights on full-stack development by Lisa Sulkes."
+>
+  <div class="mx-auto w-full max-w-5xl px-6 pt-10">
+    <a
+      href="/"
+      class="inline-flex items-center gap-2 text-lg text-muted transition hover:text-accent"
+    >
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="16"
+        height="16"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        class="shrink-0"
+      >
+        <path d="M19 12H5"></path>
+        <path d="m12 19-7-7 7-7"></path>
+      </svg>
+      Back home
+    </a>
+  </div>
+
+  <section class="mx-auto w-full max-w-5xl px-6 py-16">
+    <h1 class="font-display text-3xl font-semibold text-heading sm:text-4xl">
+      Insights
+    </h1>
+    <p class="mt-2 text-xl text-muted">
+      Thoughts on full-stack development, learning, and building for the web.
+    </p>
+
+    <div class="mt-10 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+      {posts.map((post) => <InsightCard post={post} />)}
+
+      <!-- Placeholder card -->
+      <div
+        class="flex flex-col items-center justify-center gap-2 rounded-2xl border border-dashed border-accent/20 bg-surface/20 p-6 text-center"
+      >
+        <p class="font-display text-xl text-heading">More coming soon!</p>
+        <p class="text-lg text-muted">Check back for new articles.</p>
+      </div>
+    </div>
+  </section>
+</Layout>

@@ -28,7 +28,8 @@
   --surface: #0f2036;
   --foreground: #e8eefc;
   --heading: #cbd5e1;
-  --muted: #8ba3c7;
+  /* --muted: #8ba3c7; */
+  --muted: #a5c9ff;
   --accent: var(--color-brand-400);
   --accent2: #fafcdc;
   --glow: 255 200 120;
