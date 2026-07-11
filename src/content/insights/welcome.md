@@ -1,6 +1,6 @@
 ---
 title: "Welcome"
-summary: "A quick introduction to who I am, what I build, and what you'll find here — from projects to the ideas I'm exploring as a full-stack developer."
+summary: "A quick introduction to who I am, what you'll find here, why I write, and what's next."
 pubDate: 2026-07-11
 ---
 
