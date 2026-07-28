@@ -55,6 +55,7 @@
   --color-muted: var(--muted);
   --color-accent: var(--accent);
   --color-heading: var(--heading);
+  --color-accent2: var(--accent2);
 }
 
 /* Keep form fields off-white with dark text, even when autofilled */
